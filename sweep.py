@@ -1,22 +1,15 @@
-"""
-This Viam project creates a mouse mover that makes a continuous servo turn at random angles clockwise and counterclockwise between 80 and 93 degrees
-for random lengths of time between 5 and 20 seconds long.
-"""
+#This Viam project creates a mouse mover that makes a continuous servo turn at random angles clockwise and counterclockwise between 80 and 93 degrees for random lengths of time between 5 and 20 seconds long.
 
 import asyncio
 from time import sleep
 import random
 
-"""
-Here we are stating what services from the Viam App we need to use in the SDK.
-"""
+#Here we are stating what services from the Viam App we need to use in the SDK.
 from viam.robot.client import RobotClient
 from viam.components.servo import Servo
 from viam.rpc.dial import Credentials, DialOptions
 
-"""
-This code connects the SDK to the Viam App. You can get this code from the "CODE SAMPLE" tab from your robots page in the Viam App.
-"""
+#This code connects the SDK to the Viam App. You can get this code from the "CODE SAMPLE" tab from your robots page in the Viam App.
 async def connect():
   creds = Credentials(
     type='robot-location-secret',
@@ -24,9 +17,7 @@ async def connect():
   opts = RobotClient.Options(refresh_interval=0, dial_options=DialOptions(credentials=creds))
   return await RobotClient.at_address("<PASTE YOUR ROBOT'S ADDRESS HERE>", opts)
 
-"""
-This is where you put your controlling code:
-"""
+#This is where you put your controlling code:
 async def main():
     while True:
         # Define the sequence of positions to sweep the servo through.
