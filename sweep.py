@@ -27,7 +27,7 @@ async def connect():
 """
 This is where you put your controlling code:
 """
-async def run():
+async def main():
     while True:
         # Define the sequence of positions to sweep the servo through.
         sequence = [80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93]
@@ -42,11 +42,11 @@ async def run():
             # Move the servo to a random position between 80 and 93.
             position = random.randint(80, 93)
             print(f"Turning at angle: {position}")
-            await servo.move(position)
+            await myServo.move(position)
           
             # Wait for a random amount of time between 5 and 20 seconds before moving to the next position.
             pause_time = random.uniform(5, 20)
             await asyncio.sleep(pause_time)
 
 if __name__ == '__main__':
-    asyncio.run(run())
+    asyncio.run(main())
