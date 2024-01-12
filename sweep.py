@@ -11,10 +11,12 @@ from viam.rpc.dial import Credentials, DialOptions
 
 #This code connects the SDK to the Viam App. You can get this code from the "CODE SAMPLE" tab from your robots page in the Viam App.
 async def connect():
-  creds = Credentials(
-    type='robot-location-secret',
-    payload="<PASTE YOUR SECRET HERE>") 
-  opts = RobotClient.Options(refresh_interval=0, dial_options=DialOptions(credentials=creds))
+  opts = RobotClient.Options.with_api_key(
+      # Replace "<API-KEY>" (including brackets) with your robot's API key
+      api_key='<API-KEY>',
+      # Replace "<API-KEY-ID>" (including brackets) with your robot's API key ID
+      api_key_id='<API-KEY-ID>'
+  )
   return await RobotClient.at_address("<PASTE YOUR ROBOT'S ADDRESS HERE>", opts)
 
 #This is where you put your controlling code:
